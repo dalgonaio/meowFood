@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
 import { View, Text, SafeAreaView } from 'react-native'
+import Categories from '../components/Categories'
 import HeaderTabs from '../components/HeaderTabs'
 import SearchBar from '../components/SearchBar'
 
@@ -11,6 +12,7 @@ const Home = () => {
       <HeaderTabs />
       <SearchBar />
       </View>
+      <Categories />
 
     </SafeAreaView>
   )
