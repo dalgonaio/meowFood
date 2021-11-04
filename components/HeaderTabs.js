@@ -9,11 +9,15 @@ const HeaderTabs = () => {
       text="Delivery"
       btnColor="black"
       textColor="white"
+      activeTab = {activeTab}
+      setActiveTab= {setActiveTab}
       />
       <HeaderButton
       text ="Pickup"
       btnColor="white"
-      textColor="black" />
+      textColor="black"
+      activeTab = {activeTab}
+      setActiveTab= {setActiveTab} />
     </View>
   )
 }
@@ -22,14 +26,15 @@ const HeaderButton = (props) =>
   (
     <TouchableOpacity
     style={{
-      backgroundColor:props.btnColor,
-      paddingVertical: 6,
+      backgroundColor:props.activeTab === props.text ? "black" : "white",
+      paddinxtgVertical: 6,
       paddingHorizontal:16,
-      borderRadius: 30,}} >
+      borderRadius: 30,}}
+      onPress= {()=>props.setActiveTab(props.text)} >
     <Text
     style={{
-      color:props.textColor,
-      size: 15,
+      color:props.activeTab === props.text ? "white" : "black",
+      fontSize: 15,
       fontWeight: "900",
       }}>
         {props.text}</Text>
