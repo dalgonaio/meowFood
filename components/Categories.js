@@ -33,21 +33,21 @@ const items = [
 const Categories = () => {
   return (
     <View
-    style={{
-      marginTop:5,
-      backgroundColor:"white",
-      paddingVertical:10,
-      paddingLeft: 20,
-    }}>
-      <ScrollView
-    horizontal
-    showsHorizontalScrollIndicator={false}
-    // contentContainerStyle = {styles.content}
+      style={{
+        marginTop: 5,
+        backgroundColor: 'white',
+        paddingVertical: 10,
+        paddingLeft: 20,
+      }}
     >
+      <ScrollView
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        // contentContainerStyle = {styles.content}
+      >
         {items.map((item, idx) => {
           return (
-            <View style={{alignItems:"center", marginRight:30, marginLeft:30}}
-            key={idx}>
+            <View style={{alignItems: 'center', marginRight: 30, marginLeft: 30}} key={idx}>
               <Image
                 source={item.image}
                 style={{
@@ -64,13 +64,11 @@ const Categories = () => {
               >
                 {item.text}
               </Text>
-              </View>
-
+            </View>
           );
         })}
-       </ScrollView>
+      </ScrollView>
     </View>
-
   );
 };
 
@@ -78,10 +76,10 @@ export default Categories;
 
 const styles = StyleSheet.create({
   // content:{
-    // flex:1,
-    // flexDirection: "row",
-    // justifyContent:"space-between",
-    // marginLeft:30,
-    // marginRight:30,
+  // flex:1,
+  // flexDirection: "row",
+  // justifyContent:"space-between",
+  // marginLeft:30,
+  // marginRight:30,
   // }
 });
