@@ -6,7 +6,7 @@ const RestaurantItem = () => {
   return (
     <View style={styles.container}>
       <RestaurantImage />
-      {/* Restaurant Info */}
+      <RestaurantInfo />
     </View>
   );
 };
@@ -22,17 +22,47 @@ const RestaurantImage = () => (
         height: 180,
       }}
     />
-    <TouchableOpacity style={{position:'absolute', right:25, top:20}}>
+    <TouchableOpacity style={{position: 'absolute', right: 25, top: 20}}>
       <MaterialCommunityIcons name="heart-outline" size={25} color="white" />
     </TouchableOpacity>
   </>
 );
 
+const RestaurantInfo = () => (
+  <View style={styles.info}>
+    <View>
+      <Text style={{fontSize: 15, fontWeight: 'bold'}}>Serendipity III</Text>
+      <Text style={{fontSize: 13, color: 'gray'}}>60-75 min</Text>
+    </View>
+    <View>
+      <View
+        style={{
+          backgroundColor: '#eee',
+          height: 30,
+          width: 30,
+          alignItems: 'center',
+          justifyContent: 'center',
+          borderRadius: 15,
+        }}
+      >
+        <Text>4.5</Text>
+      </View>
+    </View>
+  </View>
+);
 export default RestaurantItem;
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 5,
+    paddingTop: 15,
+    marginTop: 10,
+    padding: 15,
+    backgroundColor: 'white',
   },
-
+  info: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginTop: 10,
+  },
 });
