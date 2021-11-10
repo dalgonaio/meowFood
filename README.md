@@ -1,44 +1,43 @@
-# My Universal React Project
+<!-- ![cover for meowFood](assets/banner.jpg) -->
+meowFood!
 
-<p>
-  <!-- iOS -->
-  <a href="https://itunes.apple.com/app/apple-store/id982107779">
-    <img alt="Supports Expo iOS" longdesc="Supports Expo iOS" src="https://img.shields.io/badge/iOS-4630EB.svg?style=flat-square&logo=APPLE&labelColor=999999&logoColor=fff" />
-  </a>
-  <!-- Android -->
-  <a href="https://play.google.com/store/apps/details?id=host.exp.exponent&referrer=blankexample">
-    <img alt="Supports Expo Android" longdesc="Supports Expo Android" src="https://img.shields.io/badge/Android-4630EB.svg?style=flat-square&logo=ANDROID&labelColor=A4C639&logoColor=fff" />
-  </a>
-  <!-- Web -->
-  <a href="https://docs.expo.dev/workflow/web/">
-    <img alt="Supports Expo Web" longdesc="Supports Expo Web" src="https://img.shields.io/badge/web-4630EB.svg?style=flat-square&logo=GOOGLE-CHROME&labelColor=4285F4&logoColor=fff" />
-  </a>
-</p>
 
-## 🚀 How to use
+## My Inspiration:
+If more people were like cats - chilling and napping all day, there would be less fights let alone wars. To achieve this goal, meowFood lets you check out restaurants in your city that deliver to you. Relax and enjoy the sun as food magically appears!
 
-- Install packages with `yarn` or `npm install`.
-  - If you have native iOS code run `npx pod-install`
-- Run `yarn start` to start the bundler.
-- Open the project in a React runtime to try it:
-  - iOS: [Client iOS](https://itunes.apple.com/app/apple-store/id982107779)
-  - Android: [Client Android](https://play.google.com/store/apps/details?id=host.exp.exponent&referrer=blankexample)
-  - Web: Any web browser
+## Try Out the App:
+If you want to test this app, the prerequisite is that you have Expo installed on your device.
 
-## Adding Native Code
+While this app is in development, beta testers can try it out by cloning this repo, using the terminal to navigate to the main directory, running "npm install" and then running "npm start". The start script will then open Expo where you will be prompted to view in the simulator of your choice.
 
-This project can be run from a web browser or the Expo client app. You may find that you want to add more native code later on. You can do this by ejecting the project and rebuilding it yourself.
+An alternate to running the app in a simulator is to install Expo on a mobile device, run the start script from the terminal, and then scan the QR code.
 
-- Run `yarn eject` to create the native projects.
-- You can still run your project in the web browser or Expo client, you just won't be able to access any new native modules you add.
 
-## Publishing
+## Overview of Features:
 
-- Deploy the native app to the App store and Play store using this guide: [Deployment](https://docs.expo.dev/distribution/app-stores/).
-- Deploy the website using this guide: [Web deployment](https://docs.expo.dev/distribution/publishing-websites/).
+ Once you are signed up and logged in, you will have access to the following functions:
 
-## 📝 Notes
+- Home: A list of nearby restaurants.
+- Filter: You can filter the restaurants based on type of food and/or current deals.
+- Order: Ability to select the meal you want and order.
 
-- Learn more about [Universal React](https://docs.expo.dev/).
-- See what API and components are [available in the React runtimes](https://docs.expo.dev/versions/latest/).
-- Find out more about developing apps and websites: [Guides](https://docs.expo.dev/guides/).
+
+## Tech Stack:
+
+- Back End:
+  - FireBase
+- Front End:
+  - Expo
+  - React Native
+  - Redux
+- Design Tools:
+  - HTML
+  - CSS
+
+## Future Considerations:
+
+    TBD
+
+
+## Developer:
+ - Victoria Lee ( [LinkedIn](https://www.linkedin.com/in/victoria-lee-dev/) | [GitHub](https://github.com/dalgonaio) )
