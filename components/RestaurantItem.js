@@ -4,10 +4,15 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 
 const RestaurantItem = () => {
   return (
-    <View style={styles.container}>
+    <TouchableOpacity
+    activeOpacity={1}
+    style={{marginBottom:30}}>
+      <View style={styles.container}>
       <RestaurantImage />
       <RestaurantInfo />
     </View>
+    </TouchableOpacity>
+
   );
 };
 
