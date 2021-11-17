@@ -2,25 +2,74 @@ import React from 'react';
 import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-const RestaurantItem = () => {
-  return (
-    <TouchableOpacity
-    activeOpacity={1}
-    style={{marginBottom:30}}>
-      <View style={styles.container}>
-      <RestaurantImage />
-      <RestaurantInfo />
-    </View>
-    </TouchableOpacity>
+ const localRestaurants = [
+  {
+    name: `Please Don't Tell`,
+    image_url: 'https://s3-media0.fl.yelpcdn.com/bphoto/Jgv9AW1OubREYQAgQErUcg/o.jpg',
+    categories: ['speakeasy', 'louge'],
+    price: '$$$',
+    reviews: 100,
+    rating: 4.0,
+  },
+  {
+    name: "Angel's Share",
+    image_url: 'https://s3-media0.fl.yelpcdn.com/bphoto/XSPtVjTrKLhhwRNPFaIpIQ/o.jpg',
+    categories: ['speakeasy', 'louge'],
+    price: '$$$',
+    reviews: 100,
+    rating: 4.5,
+  },
+  {
+    name: 'Death & Co',
+    image_url: 'https://s3-media0.fl.yelpcdn.com/bphoto/NUxY-ioEFJLKhV1wmMsCIw/o.jpg',
+    categories: ['speakeasy', 'lounge'],
+    price: '$$$',
+    reviews: 100,
+    rating: 4.0,
+  },
+  {
+    name: 'Raines Law Room',
+    image_url: 'https://s3-media0.fl.yelpcdn.com/bphoto/1MDwROZhGa1Hdsz7qzQrsQ/o.jpg',
+    categories: ['speakeasy', 'bar'],
+    price: '$$$',
+    reviews: 100,
+    rating: 4.5,
+  },
+  {
+    name: 'Attaboy',
+    image_url: 'https://s3-media0.fl.yelpcdn.com/bphoto/Ju8IyOetepdDICo_688grQ/o.jpg',
+    categories: ['speakeasy', 'bar'],
+    price: '$$',
+    reviews: 100,
+    rating: 4.0,
+  },
+];
 
+const RestaurantItem = () => {
+
+  return (
+    <TouchableOpacity activeOpacity={1} style={{marginBottom: 30}}>
+
+      {localRestaurants.map((restaurant, idx) => (
+      <View key = {idx} style={styles.container} >
+      <RestaurantImage img = {restaurant.image_url} />
+      <RestaurantInfo
+      name = {restaurant.name}
+      rating = {restaurant.rating}
+      />
+      </View>
+  ))
+    }
+
+    </TouchableOpacity>
   );
 };
 
-const RestaurantImage = () => (
+const RestaurantImage = (props) => (
   <>
     <Image
       source={{
-        uri: 'https://www.google.com/maps/uv?pb=!1s0x89c259a9a94054ed%3A0xccbfde5942dbc6e3!3m1!7e115!4shttps%3A%2F%2Flh5.googleusercontent.com%2Fp%2FAF1QipPU1-yK_Y8eJv7QnSjnzMiPm_LO2HWIt3v89BuV%3Dw213-h160-k-no!5sserendipity%20nyc%20-%20Google%20Search!15sCgIgAQ&imagekey=!1e10!2sAF1QipPU1-yK_Y8eJv7QnSjnzMiPm_LO2HWIt3v89BuV&hl=en&sa=X&ved=2ahUKEwikwsSR0IL0AhXtlOAKHawhB0cQoip6BAheEAM',
+        uri: props.img,
       }}
       style={{
         width: '100%',
@@ -33,10 +82,10 @@ const RestaurantImage = () => (
   </>
 );
 
-const RestaurantInfo = () => (
+const RestaurantInfo = (props) => (
   <View style={styles.info}>
     <View>
-      <Text style={{fontSize: 15, fontWeight: 'bold'}}>Serendipity III</Text>
+      <Text style={{fontSize: 15, fontWeight: 'bold'}}>{props.name}</Text>
       <Text style={{fontSize: 13, color: 'gray'}}>60-75 min</Text>
     </View>
     <View>
@@ -50,7 +99,7 @@ const RestaurantInfo = () => (
           borderRadius: 15,
         }}
       >
-        <Text>4.5</Text>
+        <Text>{props.rating}</Text>
       </View>
     </View>
   </View>
