@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {View, Text, SafeAreaView, ScrollView} from 'react-native';
 import Categories from '../components/Categories';
 import HeaderTabs from '../components/HeaderTabs';
@@ -8,25 +8,30 @@ import SearchBar from '../components/SearchBar';
 
 const apikey ="B1iXCN9N8nmNaWtNVd6FWAWeTK-eP9sLRj4hLlxek8W1JwRTv8toIxAaJZ4Tq1v1LX5PYcwtQwnjPblLfGOmnYT4JJ-RFgLaJmcaDmJ4EslWHiolr_j3NaGmsb6VYXYx";
 
-// const yelp = require('yelp-fusion');
-// const client = yelp.client(apiKey);
 
-const getRestaurantsFromYelp = () =>{
- const yelpURL = "https://api.yelp.com/v3/businesses/search?term=restaurants&location=NewYorkCity"
 
- const apiOptions = {
-   headers: {
-     Authorization: `Bearer ${apikey}`,
-   }}
 
-   return fetch(yelpURL, apiOptions)
-   .then((res)=>res.json())
-   .then(json=>setRestaurantData(json.businesses))
- }
 
 
 const Home = () => {
   const [restaurantData, setRestaurantData] = useState(localRestaurants);
+
+  const getRestaurantsFromYelp = () =>{
+    const yelpURL = "https://api.yelp.com/v3/businesses/search?term=restaurants&location=NewYorkCity"
+
+    const apiOptions = {
+      headers: {
+        Authorization: `Bearer ${apikey}`,
+      }}
+
+      return fetch(yelpURL, apiOptions)
+      .then((res)=>res.json())
+      .then(json=>setRestaurantData(json.businesses))
+    }
+
+  useEffect(()=>{
+    getRestaurantsFromYelp();
+ }, [])
 
   return (
     <SafeAreaView style={{backgroundColor: '#eee', flex: 1}}>
