@@ -2,7 +2,7 @@ import React from 'react';
 import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
- const localRestaurants = [
+ export const localRestaurants = [
   {
     name: `Please Don't Tell`,
     image_url: 'https://s3-media0.fl.yelpcdn.com/bphoto/Jgv9AW1OubREYQAgQErUcg/o.jpg',
@@ -45,12 +45,12 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
   },
 ];
 
-const RestaurantItem = () => {
+const RestaurantItems = (props) => {
 
   return (
     <TouchableOpacity activeOpacity={1} style={{marginBottom: 30}}>
 
-      {localRestaurants.map((restaurant, idx) => (
+      {props.restaurants.map((restaurant, idx) => (
       <View key = {idx} style={styles.container} >
       <RestaurantImage img = {restaurant.image_url} />
       <RestaurantInfo
@@ -104,7 +104,7 @@ const RestaurantInfo = (props) => (
     </View>
   </View>
 );
-export default RestaurantItem;
+export default RestaurantItems;
 
 const styles = StyleSheet.create({
   container: {
