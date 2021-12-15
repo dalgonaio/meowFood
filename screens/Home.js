@@ -13,10 +13,11 @@ const apikey ="B1iXCN9N8nmNaWtNVd6FWAWeTK-eP9sLRj4hLlxek8W1JwRTv8toIxAaJZ4Tq1v1L
 
 const Home = () => {
   const [restaurantData, setRestaurantData] = useState(localRestaurants);
+  const [city, setCity] = useState("New York")
 
   //call to Yelp for restaurant data
   const getRestaurantsFromYelp = () =>{
-    const yelpURL = "https://api.yelp.com/v3/businesses/search?term=restaurants&location=NewYorkCity"
+    const yelpURL = `https://api.yelp.com/v3/businesses/search?term=restaurants&location=${city}`
 
     const apiOptions = {
       headers: {
@@ -28,16 +29,16 @@ const Home = () => {
       .then(json=>setRestaurantData(json.businesses))
     }
 
-    //set up state with data pulled from yelp upon loading
+    //set up state with data pulled from yelp upon loading and or search bar use
   useEffect(()=>{
     getRestaurantsFromYelp();
- }, [])
+ }, [city])
 
   return (
     <SafeAreaView style={{backgroundColor: '#eee', flex: 1}}>
       <View style={{backgroundColor: 'white', padding: 15}}>
         <HeaderTabs />
-        <SearchBar />
+        <SearchBar cityHandler = {setCity} />
       </View>
       <ScrollView>
         <Categories />
