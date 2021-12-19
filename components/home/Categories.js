@@ -5,27 +5,27 @@ import {StyleSheet, Text, View, Image, ScrollView, ImageStore} from 'react-nativ
 
 const items = [
   {
-    image: require('../assets/images/ShoppingBag2.png'),
+    image: require('../../assets/images/ShoppingBag2.png'),
     text: 'Pick up',
   },
   {
-    image: require('../assets/images/drinks.png'),
+    image: require('../../assets/images/drinks.png'),
     text: 'Soft Drinks',
   },
   {
-    image: require('../assets/images/bakery.png'),
+    image: require('../../assets/images/bakery.png'),
     text: 'Bakery',
   },
   {
-    image: require('../assets/images/fastfood.png'),
+    image: require('../../assets/images/fastfood.png'),
     text: 'Fast Food',
   },
   {
-    image: require('../assets/images/deals.png'),
+    image: require('../../assets/images/deals.png'),
     text: 'Deals',
   },
   {
-    image: require('../assets/images/bakery.png'),
+    image: require('../../assets/images/bakery.png'),
     text: 'Coffe & Tea',
   },
 ];

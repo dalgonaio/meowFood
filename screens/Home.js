@@ -3,11 +3,11 @@ import React, {useState, useEffect} from 'react';
 import {View, Text, ScrollView} from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import {Divider} from "react-native-elements";
-import Categories from '../components/Categories';
-import HeaderTabs from '../components/HeaderTabs';
-import RestaurantItems, {localRestaurants} from '../components/RestaurantItem';
-import SearchBar from '../components/SearchBar';
-import BottomTabs from "../components/BottomTabs";
+import Categories from '../components/home/Categories';
+import HeaderTabs from '../components/home/HeaderTabs';
+import RestaurantItems, {localRestaurants} from '../components/home/RestaurantItem';
+import SearchBar from '../components/home/SearchBar';
+import BottomTabs from "../components/home/BottomTabs";
 
 //Yelp Developer API Key
 const apikey =
