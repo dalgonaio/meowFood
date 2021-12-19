@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 export default function BottomTabs() {
@@ -17,6 +17,7 @@ export default function BottomTabs() {
 }
 
 const Icon = (props) => (
+  <TouchableOpacity >
   <View>
     <FontAwesome5 name={props.icon}
     size={25}
@@ -24,6 +25,7 @@ const Icon = (props) => (
     />
     <Text>{props.text}</Text>
   </View>
+  </TouchableOpacity>
 );
 
 const styles = StyleSheet.create({
