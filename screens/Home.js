@@ -1,10 +1,13 @@
 /* eslint-disable no-unused-vars */
 import React, {useState, useEffect} from 'react';
-import {View, Text, SafeAreaView, ScrollView} from 'react-native';
+import {View, Text, ScrollView} from 'react-native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import {Divider} from "react-native-elements";
 import Categories from '../components/Categories';
 import HeaderTabs from '../components/HeaderTabs';
 import RestaurantItems, {localRestaurants} from '../components/RestaurantItem';
 import SearchBar from '../components/SearchBar';
+import BottomTabs from "../components/BottomTabs";
 
 //Yelp Developer API Key
 const apikey =
@@ -45,7 +48,7 @@ const Home = () => {
   }, [city, activeTab]);
 
   return (
-    <SafeAreaView style={{backgroundColor: '#eee', flex: 1}}>
+    <SafeAreaProvider style={{backgroundColor: '#eee', flex: 1}}>
       <View style={{backgroundColor: 'white', padding: 15}}>
         <HeaderTabs activeTab={activeTab} setActiveTab={setActiveTab} />
         <SearchBar cityHandler={setCity} />
@@ -54,7 +57,9 @@ const Home = () => {
         <Categories />
         <RestaurantItems restaurants={restaurantData} />
       </ScrollView>
-    </SafeAreaView>
+      <Divider width = {1} />
+      <BottomTabs />
+    </SafeAreaProvider>
   );
 };
 
