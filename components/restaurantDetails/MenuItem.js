@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
-import {View, Text, Image, StyleSheet, ScrollView} from 'react-native';
-
+import {View, Text, Image, StyleSheet, ScrollView, TouchableOpacity} from 'react-native';
 
 const foods = [
   {
@@ -29,51 +28,53 @@ const foods = [
 
 const MenuItem = () => {
   return (
-    <ScrollView >
-      {foods.map((item, i) => {
-        return (
-          <View
-          key={i}
-          style={styles.singleItem}>
-          <FoodInfo food={item} />
-          <FoodImage food = {item} />
-          </View>
-        );
-      })}
+    <ScrollView>
+      <View style={styles.menuItemStyle}>
+        {foods.map((item, i) => {
+          return (
+            <View key={i} >
+              <TouchableOpacity style={styles.singleItem}>
+                <FoodInfo food={item} />
+                <FoodImage food={item} />
+              </TouchableOpacity>
+            </View>
+          );
+        })}
+      </View>
     </ScrollView>
   );
 };
 
 const FoodInfo = (props) => (
-  <View>
+  <View style={{width: 240, justifyContent: 'space-evenly'}}>
     <Text style={styles.title}>{props.food.title}</Text>
     <Text>{props.food.description}</Text>
     <Text>{props.food.price}</Text>
   </View>
 );
 
-const FoodImage = (props) =>(
+const FoodImage = (props) => (
   <Image
-  source={{
-    uri: props.food.image,
-  }}
-  style={{
-    width: '30%',
-    height: 90,
-  }}
-/>
-)
+    source={{
+      uri: props.food.image,
+    }}
+    style={{
+      width: '30%',
+      height: 90,
+    }}
+  />
+);
 
 export default MenuItem;
 
 const styles = StyleSheet.create({
   menuItemStyle: {
-    flexDirection: 'row',
+    flexDirection: 'column',
     justifyContent: 'space-between',
     margin: 20,
   },
   singleItem: {
-    flexDirection: "row",
+    flexDirection: 'row',
     justifyContent: 'space-between',
     marginBottom: 20,
   },
