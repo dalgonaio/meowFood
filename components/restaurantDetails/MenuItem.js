@@ -1,6 +1,8 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import {View, Text, Image, StyleSheet, ScrollView, TouchableOpacity} from 'react-native';
+import {Divider} from 'react-native-elements/dist/divider/Divider';
+
 
 const foods = [
   {
@@ -28,16 +30,19 @@ const foods = [
 
 const MenuItem = () => {
   return (
-    <ScrollView>
+    <ScrollView showsVerticalScrollIndicator={false}>
       <View style={styles.menuItemStyle}>
         {foods.map((item, i) => {
           return (
-            <View key={i} >
-              <TouchableOpacity style={styles.singleItem}>
-                <FoodInfo food={item} />
-                <FoodImage food={item} />
-              </TouchableOpacity>
-            </View>
+            <>
+              <View key={i}>
+                <TouchableOpacity style={styles.singleItem}>
+                  <FoodInfo food={item} />
+                  <FoodImage food={item} />
+                </TouchableOpacity>
+              </View>
+              <Divider width={0.5} orientation="vertical" />
+            </>
           );
         })}
       </View>
@@ -59,8 +64,9 @@ const FoodImage = (props) => (
       uri: props.food.image,
     }}
     style={{
-      width: '30%',
-      height: 90,
+      width: 100,
+      height: 100,
+      borderRadius: 8,
     }}
   />
 );
@@ -76,10 +82,10 @@ const styles = StyleSheet.create({
   singleItem: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 20,
+    marginTop: 10,
+    marginBottom:10,
   },
   title: {
     fontWeight: '700',
-    marginBottom: 10,
   },
 });
