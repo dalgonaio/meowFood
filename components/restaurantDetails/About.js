@@ -51,7 +51,7 @@ const RestaurantDescription = (props) => (
     }}
   >
     {props.categories.map((item, i) => {
-      return <Text>{item.title} • </Text>;
+      return <Text key={i}>{item.title} • </Text>;
     })}
     <Text>{props.price ? props.price : "" } • </Text>
     <Text>🎫 • </Text>

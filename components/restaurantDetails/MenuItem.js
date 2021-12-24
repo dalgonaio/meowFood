@@ -3,7 +3,6 @@ import React from 'react';
 import {View, Text, Image, StyleSheet, ScrollView, TouchableOpacity} from 'react-native';
 import {Divider} from 'react-native-elements/dist/divider/Divider';
 
-
 const foods = [
   {
     title: 'Cream Puff',
@@ -34,15 +33,13 @@ const MenuItem = () => {
       <View style={styles.menuItemStyle}>
         {foods.map((item, i) => {
           return (
-            <>
-              <View key={i}>
-                <TouchableOpacity style={styles.singleItem}>
-                  <FoodInfo food={item} />
-                  <FoodImage food={item} />
-                </TouchableOpacity>
-              </View>
+            <View key={i}>
+              <TouchableOpacity style={styles.singleItem}>
+                <FoodInfo food={item} />
+                <FoodImage food={item} />
+              </TouchableOpacity>
               <Divider width={0.5} orientation="vertical" />
-            </>
+            </View>
           );
         })}
       </View>
@@ -83,7 +80,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginTop: 10,
-    marginBottom:10,
+    marginBottom: 10,
   },
   title: {
     fontWeight: '700',
