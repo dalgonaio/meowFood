@@ -5,7 +5,7 @@ import { Divider } from 'react-native-elements/dist/divider/Divider';
 import About from '../components/restaurantDetails/About';
 import MenuItem from '../components/restaurantDetails/MenuItem';
 
-const RestaurantDetails = ({ route, ...props }) => {
+const RestaurantDetails = ({ route }) => {
 
   return (
     <View>

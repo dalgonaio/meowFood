@@ -15,7 +15,7 @@ const yelpRestaurantInfo = {
 const About = (props) => {
   const {name, image, price, reviews, rating, categories} = props.route.params;
 
-  const formattedProps = categories.map((item, i) => {
+  const formattedProps = categories.map((item) => {
     return item.title ;
   }).join("•")
 
