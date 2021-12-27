@@ -3,7 +3,7 @@ import React from 'react';
 import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
- export const localRestaurants = [
+export const localRestaurants = [
   {
     name: `Please Don't Tell`,
     image_url: 'https://s3-media0.fl.yelpcdn.com/bphoto/Jgv9AW1OubREYQAgQErUcg/o.jpg',
@@ -46,23 +46,29 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
   },
 ];
 
-const RestaurantItems = (props) => {
-
+const RestaurantItems = ({navigation, ...props}) => {
   return (
-    <TouchableOpacity activeOpacity={1} style={{marginBottom: 30}}>
-
+    <>
       {props.restaurants.map((restaurant, idx) => (
-      <View key = {idx} style={styles.container} >
-      <RestaurantImage img = {restaurant.image_url} />
-      <RestaurantInfo
-      name = {restaurant.name}
-      rating = {restaurant.rating}
-      />
-      </View>
-  ))
-    }
-
-    </TouchableOpacity>
+        <TouchableOpacity
+          key={idx}
+          activeOpacity={1}
+          style={{marginBottom: 30}}
+          onPress={()=>{navigation.navigate("RestaurantDetails", {
+            name: restaurant.name,
+            image: restaurant.image_url,
+            price: restaurant.price,
+            reviews: restaurant.review_count,
+            rating: restaurant.rating,
+            categories: restaurant.categories,
+          })}}>
+          <View style={styles.container}>
+            <RestaurantImage img={restaurant.image_url} />
+            <RestaurantInfo name={restaurant.name} rating={restaurant.rating} />
+          </View>
+        </TouchableOpacity>
+      ))}
+    </>
   );
 };
 

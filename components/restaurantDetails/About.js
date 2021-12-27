@@ -11,9 +11,9 @@ const yelpRestaurantInfo = {
   categories: [{title: 'cafe'}, {title: 'patries'}],
 };
 
-const {name, image, price, reviews, rating, categories} = yelpRestaurantInfo;
+const About = (props) => {
+  const {name, image, price, reviews, rating, categories} = props.route.params;
 
-const About = () => {
   return (
     <View>
       <RestaurantImage image={image} />
