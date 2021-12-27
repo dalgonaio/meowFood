@@ -13,7 +13,7 @@ import BottomTabs from "../components/home/BottomTabs";
 const apikey =
   'B1iXCN9N8nmNaWtNVd6FWAWeTK-eP9sLRj4hLlxek8W1JwRTv8toIxAaJZ4Tq1v1LX5PYcwtQwnjPblLfGOmnYT4JJ-RFgLaJmcaDmJ4EslWHiolr_j3NaGmsb6VYXYx';
 
-const Home = () => {
+const Home = ({ navigation }) => {
   const [restaurantData, setRestaurantData] = useState(localRestaurants);
   const [city, setCity] = useState('New York');
   const [activeTab, setActiveTab] = useState('Delivery');
@@ -55,7 +55,7 @@ const Home = () => {
       </View>
       <ScrollView>
         <Categories />
-        <RestaurantItems restaurants={restaurantData} />
+        <RestaurantItems restaurants={restaurantData} navigation={navigation} />
       </ScrollView>
       <Divider width = {1} />
       <BottomTabs />
