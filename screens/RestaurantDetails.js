@@ -6,7 +6,6 @@ import About from '../components/restaurantDetails/About';
 import MenuItem from '../components/restaurantDetails/MenuItem';
 
 const RestaurantDetails = ({ route, ...props }) => {
-  const {name, image, price, reviews, rating, categories} = route.params;
 
   return (
     <View>

@@ -2,6 +2,7 @@
 import React from 'react';
 import {View, Text, Image} from 'react-native';
 
+
 const yelpRestaurantInfo = {
   name: 'Meow Cafe',
   image: 'https://i.pinimg.com/originals/29/ac/0f/29ac0fdf992ac6180ce795755bc5a183.jpg',
@@ -14,11 +15,15 @@ const yelpRestaurantInfo = {
 const About = (props) => {
   const {name, image, price, reviews, rating, categories} = props.route.params;
 
+  const formattedProps = categories.map((item, i) => {
+    return item.title ;
+  }).join("•")
+
   return (
     <View>
       <RestaurantImage image={image} />
       <RestaurantTitle title={name} />
-      <RestaurantDescription price={price} reviews = {reviews} rating = {rating} categories ={categories} />
+      <RestaurantDescription price={price} reviews = {reviews} rating = {rating} formattedProps ={formattedProps} />
     </View>
   );
 };
@@ -33,7 +38,7 @@ const RestaurantTitle = (props) => (
       fontSize: 29,
       fontWeight: '600',
       marginTop: 10,
-      marginHorizontal: 15,
+      marginHorizontal: 20,
     }}
   >
     {props.title}
@@ -41,23 +46,18 @@ const RestaurantTitle = (props) => (
 );
 
 const RestaurantDescription = (props) => (
-  <View
-    style={{
-      flexDirection: 'row',
-      marginTop: 10,
-      marginHorizontal: 15,
-      fontWeight: '400',
-      fontSize: 15.5,
-    }}
+
+      <View style={{
+        marginTop: 10,
+        marginHorizontal: 15,
+        fontWeight: '400',
+        fontSize: 15,
+      }}
   >
-    {props.categories.map((item, i) => {
-      return <Text key={i}>{item.title} • </Text>;
-    })}
-    <Text>{props.price ? props.price : "" } • </Text>
-    <Text>🎫 • </Text>
-    <Text>{props.rating} ⭐ </Text>
-    <Text>{props.reviews} +</Text>
+    <Text>{props.formattedProps} • {props.price ? props.price : "" } • 🎫 • {props.rating}⭐  ({props.reviews}+) </Text>
   </View>
+
+
 );
 
 export default About;
