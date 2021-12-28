@@ -4,6 +4,7 @@ import {View, Text, Image, StyleSheet, ScrollView, TouchableOpacity} from 'react
 import {Divider} from 'react-native-elements/dist/divider/Divider';
 import BouncyCheckbox from "react-native-bouncy-checkbox";
 
+
 const foods = [
   {
     title: 'Cream Puff',
